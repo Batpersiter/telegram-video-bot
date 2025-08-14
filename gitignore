@@ -1,0 +1,10 @@
+# Environment variables
+*.env
+config.py
+
+# Database (optional — you can include bot.db or ignore it)
+bot.db
+
+# Cache
+__pycache__/
+*.pyc
