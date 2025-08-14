@@ -12,6 +12,11 @@ from telegram.ext import (
 import sqlite3
 from datetime import datetime, timedelta
 import asyncio
+import os
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+if not BOT_TOKEN:
+    raise RuntimeError("BOT_TOKEN is not set! Check Koyeb Secrets.")
 
 # --- CONFIGURATION ---
 BOT_TOKEN = "BOT_TOKEN"
