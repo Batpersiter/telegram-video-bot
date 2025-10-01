@@ -553,3 +553,22 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+# ---- Flask server for Choreo ----
+from flask import Flask
+import os
+import threading
+
+# Create Flask app
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "✅ Bot is running on Choreo!"
+
+def run_flask():
+    port = int(os.environ.get("PORT", 8000))  # Choreo sets PORT env variable
+    app.run(host="0.0.0.0", port=port)
+
+# Run Flask server in a separate thread so it doesn't block your bot
+threading.Thread(target=run_flask).start()
